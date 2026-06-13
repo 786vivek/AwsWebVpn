@@ -11,5 +11,7 @@ public interface UserService {
 public List<User> fetchAllUser();
 public String deleteUser(Integer id);
 public User updateUser(Integer id, User user);
+public boolean validateUser(String username, String password);
 //String deleteUser(Integer id);
+//public userDetailsService loadUserByUsername(String username);
 }

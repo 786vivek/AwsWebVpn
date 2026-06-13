@@ -21,12 +21,33 @@ public class User implements Serializable {
 
 	Integer id;
 	
+public User(Integer id, @NotNull(message = "Name cannot be null") String name, String password, Boolean isDeleted) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.password = password;
+		this.isDeleted = isDeleted;
+	}
+public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+
 @NotNull(message = "Name cannot be null")
 @Column(nullable = false)
 	private String name;
-	//@Override
+
+
+private String password;
+	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + "]";
+		return "User [id=" + id + ", name=" + name + ", password=" + password + ", isDeleted=" + isDeleted + "]";
 	}
 	public Integer getId() {
 		return id;

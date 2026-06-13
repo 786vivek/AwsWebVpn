@@ -17,6 +17,16 @@ public class UserServiceImpl implements UserService {
 	private UserRepository userRepository;
 
 
+@Override	
+    public boolean validateUser(String username, String password) {
+        // Replace with DB validation
+    	try {
+    	userRepository.findByNameAndPassword(username, password).orElseThrow(() -> new RuntimeException("Invalid username or password"));
+    	} catch (RuntimeException e) {
+			return false;
+		}
+return true;
+	}
 
 	@Override
 	public User addUser( User user) {		
