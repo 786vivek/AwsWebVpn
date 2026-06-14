@@ -57,13 +57,13 @@ if (id != null) {
 	public List<User> fetchAllUser() {
 
 		//Optional<List<User>> user = userRepository.findall().orElseThrow(() -> new ResourceNotFoundException("User not found"));
-
+System.out.println("in implservice");
 	    List<User> users = userRepository.findAll();
 
 	    if (users.isEmpty()) {
 	        throw new RuntimeException("No users found");
 	    }
-
+System.out.println("users++++++++++"+users.toString());
 		return users;
 		/*
 		 * User u = user.orElseThrow( () -> new RuntimeException("User not found")

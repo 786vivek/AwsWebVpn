@@ -29,7 +29,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping(AppConstants.HOMECONTROLLER_APP)
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000/")
 public class HomeController {
 
 	  @Autowired private JwtUtil jwtUtil;
@@ -49,7 +49,7 @@ public class HomeController {
 	    public ResponseEntity<String> login(@RequestBody User user) {
 	        if (userService.validateUser(user.getName(), user.getPassword())==true) {
 	        	
-	            String token = jwtUtil.generateToken(user.getName());
+	            String token = jwtUtil.generateToken(user);
 	            System.out.println("tokenjwt++++++++++"+token);
 	            return ResponseEntity.ok(token);
 	        } else {
